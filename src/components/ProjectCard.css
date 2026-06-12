@@ -1,0 +1,164 @@
+/* ProjectCard — reference: radius 5px, transition .4s cubic-bezier(.4,0,.2,1) */
+.project-card {
+  width: 100%;
+  height: 100%; /* fill the masonry grid cell */
+  animation: project-card-in 0.5s var(--ease) both;
+}
+/* mount/refilter fade-up (CSS, not AOS, so re-filtered cards never stick at opacity:0) */
+@keyframes project-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  flex: 1; /* fill the cell height; image cropped via object-fit */
+  min-height: 0;
+}
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-base) var(--ease);
+}
+
+/* overlay (reference: dark overlay) — now a mini case study: desc + tags + CTA */
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.7) 0%,
+    rgba(14, 14, 14, 0.95) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease);
+}
+.project-card-overlay-body {
+  transform: translateY(12px);
+  transition: transform var(--t-base) var(--ease);
+}
+.project-card-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-card-tag {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  padding: 4px 10px;
+  border: 1px solid rgba(102, 217, 237, 0.4);
+  border-radius: 40px;
+}
+.project-card-show {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  padding: 10px 22px;
+  border: 1px solid var(--color-accent);
+  border-radius: 40px;
+  transform: translateY(12px);
+  transition: transform var(--t-base) var(--ease);
+}
+.project-card-show::after {
+  content: ' →';
+  color: var(--color-accent);
+}
+
+/* hover: scale image + reveal overlay (desc/tags/CTA slide up) */
+.project-card-link:hover .project-card-image img {
+  transform: scale(1.06);
+}
+.project-card-link:hover .project-card-overlay {
+  opacity: 1;
+}
+.project-card-link:hover .project-card-overlay-body,
+.project-card-link:hover .project-card-show {
+  transform: translateY(0);
+}
+
+/* details (reference .portfolio-item-details) */
+.project-card-details {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  flex-shrink: 0; /* stays below the image in the fixed-height cell */
+}
+.project-card-headline {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  transition: color var(--t-base) var(--ease);
+}
+.project-card-link:hover .project-card-headline {
+  color: var(--color-accent);
+}
+
+/* category (reference .category: .94rem, rgba(255,255,255,.75), bullet) */
+.category-holder {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.category-holder::before {
+  content: '•';
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.8em;
+  color: var(--color-accent);
+  margin-right: 6px;
+}
+.category {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 767px) {
+  /* single column: cards back to a normal aspect ratio (no fixed-cell fill) */
+  .project-card {
+    height: auto;
+  }
+  .project-card-image {
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
+  .project-card-headline {
+    font-size: 20px;
+  }
+}

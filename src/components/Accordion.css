@@ -1,0 +1,113 @@
+/* Accordion — reference values (.accordionItem) */
+.ohio-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordionItem {
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* title bar: min-height 54px, padding 15px 20px, subtle bg, control on the right */
+.accordionItem_title {
+  width: 100%;
+  min-height: 54px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: rgba(136, 136, 136, 0.05);
+  text-align: left;
+  transition: background-color var(--t-base) var(--ease);
+}
+.accordionItem.current .accordionItem_title,
+.accordionItem_title:hover {
+  background-color: rgba(136, 136, 136, 0.1);
+}
+
+/* round control button 40x40 (reference .accordionItem_control) */
+.accordionItem_control {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(136, 136, 136, 0.05);
+}
+/* +/- icon built from two bars; the vertical one collapses when open */
+.accordionItem_control::before,
+.accordionItem_control::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: var(--color-text);
+  transform: translate(-50%, -50%);
+  transition: transform var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
+}
+.accordionItem_control::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.accordionItem.current .accordionItem_control::before {
+  background: var(--color-accent);
+}
+.accordionItem.current .accordionItem_control::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* heading: role @ company + period */
+.accordionItem_heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.accordionItem_role {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+.accordionItem.current .accordionItem_role {
+  color: var(--color-accent);
+}
+.accordionItem_meta {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* content: animated open/close via max-height (reference transition .4s cubic-bezier)
+   max-height is set inline from the measured scrollHeight (see Accordion.jsx) */
+.accordionItem_content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--t-base) var(--ease);
+}
+/* padding is constant inside the wrap so the measured height is stable;
+   when closed, the 0 max-height + overflow:hidden clips it cleanly */
+.accordionItem_wrap {
+  /* reference .accordionItem_content .wrap padding */
+  padding: 20px;
+}
+.accordionItem_wrap p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .accordionItem_role {
+    font-size: 18px;
+  }
+}

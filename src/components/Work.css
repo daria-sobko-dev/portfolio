@@ -1,0 +1,270 @@
+/* Work — reference: featured-project top + .portfolio-sorting + .portfolio-grid */
+.work-container {
+  max-width: 1240px; /* reference section #3750356 */
+}
+
+/* ---- Featured Project (top): two columns 45% / 55% ---- */
+.work-top {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 250px;
+}
+.work-intro {
+  width: 45%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1; /* stay above the absolute featured image when it bleeds left */
+}
+/* heading #1e46132: Poppins 105px/600, lh 1.2, left, mb 40px (80px on tablet) */
+.work-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 105px;
+  line-height: 1.2em;
+  text-align: left;
+  margin: 0 0 40px;
+}
+/* intro #92ca4d8: Roboto Mono 20px/500, #fff, lh 1.2 */
+.work-intro-text {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2em;
+  color: var(--color-text);
+}
+
+/* right column #a1b9b56: width 55% */
+.work-featured {
+  width: 55%;
+  position: relative;
+}
+/* media in normal flow (the base visual) */
+.work-featured-media {
+  position: static;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.work-featured-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* caption group (arrow + label + name + button) absolutely positioned just
+   below the media so it no longer crowds the image, with extra vertical spacing */
+.work-featured-caption {
+  position: absolute;
+  left: 0;
+  top: calc(100% - 110px); /* pulled up onto the image; tail hangs below into the margin */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+/* arrow #d654387: width 124px, indented 63px */
+.work-featured-arrow {
+  width: 100px;
+  height: auto;
+  margin: 0 0 0 63px;
+}
+/* "Featured Project" #d38e305: Poppins 22px/500 */
+.work-featured-label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--color-text);
+}
+/* project name #5df8de9: Roboto Mono 30px/600 */
+.work-featured-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* featured tech tags */
+.work-featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.work-featured-tags li {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  padding: 5px 12px;
+  border: 1px solid rgba(102, 217, 237, 0.4);
+  border-radius: 40px;
+  background: rgba(14, 14, 14, 0.4);
+}
+/* button #93f6e71: bg #9b37ff, radius 3px, padding 15px 24px */
+.work-featured-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+  background-color: #9b37ff;
+  border-radius: 3px;
+  padding: 15px 24px;
+  transition: background-color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.work-featured-btn:hover {
+  background-color: #7d1ee0;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+
+
+/* ---- Filter bar (reference .portfolio-sorting) ---- */
+.portfolio-sorting {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 40px;
+}
+.sorting-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+.sorting-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+}
+/* " / " separator between items (reference) */
+.sorting-item + .sorting-item::before {
+  content: '/';
+  color: var(--color-text-muted);
+  margin-right: 14px;
+}
+.sorting-btn {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 16px;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  transition: color var(--t-base) var(--ease);
+}
+.sorting-btn:hover {
+  color: var(--color-accent);
+}
+.sorting-btn.is-active {
+  color: var(--color-accent);
+}
+/* zero-padded count badge (reference span.num) */
+.sorting-btn .num {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  transform: translateY(-2px);
+}
+.sorting-btn.is-active .num {
+  color: var(--color-accent);
+}
+
+/* ---- Grid: 3-column masonry (reference vc_col-lg-4 / double-width col-lg-8) ----
+   single cards span 1 col; 'wide' span 2 cols, 'tall' span 2 rows, 'big' 2×2.
+   grid-auto-flow:dense backfills the gaps left by the larger items. */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  grid-auto-flow: row dense;
+  gap: 30px;
+}
+.project-card--wide {
+  grid-column: span 2;
+}
+.project-card--tall {
+  grid-row: span 2;
+}
+.project-card--big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  .work-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    margin-bottom: 80px; /* adaptive: caption flows below image, so a normal gap */
+  }
+  .work-intro,
+  .work-featured {
+    width: 100%;
+  }
+  /* caption back into normal flow (below the image), not absolutely overlapping */
+  .work-featured-caption {
+    position: static;
+    margin-top: 20px;
+  }
+  .work-heading {
+    font-size: 80px; /* reference tablet size */
+    margin-bottom: 24px;
+  }
+  .work-intro-text {
+    font-size: 19px;
+    line-height: 1.4em;
+  }
+  /* tablet: 2-col grid (reference vc_col-md-6); wide/big items go full-width */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 240px;
+    gap: 24px;
+  }
+  .project-card--wide,
+  .project-card--big {
+    grid-column: span 2;
+  }
+  .project-card--big {
+    grid-row: span 2;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  .work-top {
+    margin-bottom: 64px;
+  }
+  .work-heading {
+    font-size: 56px;
+  }
+  .work-intro-text {
+    font-size: 17px;
+  }
+  .work-featured-arrow {
+    width: 83px;
+    margin-left: 0;
+  }
+  .work-featured-name {
+    font-size: 26px;
+  }
+  /* mobile: single column, reset all masonry spans */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 32px;
+  }
+  .project-card--wide,
+  .project-card--tall,
+  .project-card--big {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .portfolio-sorting {
+    margin-bottom: 28px;
+  }
+}

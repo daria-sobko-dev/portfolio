@@ -1,0 +1,75 @@
+/* =========================================================================
+   Design tokens — extracted 1:1 from the reference (tamalsen.dev, Ohio theme)
+   Dark theme: near-black background, light text, cyan accent.
+   ========================================================================= */
+:root {
+  /* ---- Colors ---- */
+  --color-bg: #1a191d;          /* page / section background (reference .dark-scheme .site-content) */
+  --color-bg-alt: #161519;      /* footer / alt surfaces (slightly darker) */
+  --color-surface: #232128;     /* cards — a step lighter than bg for contrast */
+  --color-text: #ffffff;        /* primary text */
+  --color-text-muted: #a3a3a3;  /* muted text */
+  --color-text-dim: rgba(255, 255, 255, 0.8);
+
+  --color-accent: #66d9ed;      /* cyan — links, hover, highlights */
+  --color-accent-2: #923fe6;    /* purple (project cards / gradients) */
+
+  /* card gradient family (from reference) */
+  --color-purple-1: #bc60fb;
+  --color-purple-2: #9b37ff;
+  --color-purple-3: #740cdc;
+  --color-purple-4: #490c86;
+  --color-dark: #17161a;
+
+  /* ---- Typography ---- */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fw-heading: 600;            /* Elementor primary weight */
+  --fw-body: 400;
+  --fw-accent: 500;
+
+  /* heading sizes (reference: 105 / 80 / 75 / 62 / 46 / 30 px) */
+  --fs-hero: 6.6vw;             /* hero H1 scales with viewport */
+  --fs-h1: 80px;
+  --fs-h2: 46px;
+  --fs-h3: 30px;
+  --fs-h4: 22px;
+  --fs-lead: 26px;             /* hero subtitle / section intro */
+  --fs-body: 16px;
+  --fs-small: 15px;
+  --fs-xs: 13px;
+
+  --lh-tight: 1.1;
+  --lh-base: 1.6;
+
+  /* ---- Layout ---- */
+  --container-max: 1140px;
+  --container-pad: 30px;        /* horizontal gutter */
+  --section-pad-y: 100px;       /* vertical section rhythm */
+  --gap: 20px;                  /* Elementor --widgets-spacing */
+
+  /* ---- Radius / borders ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* ---- Motion (reference timings) ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.25s;
+  --t-base: 0.4s;
+  --t-slow: 0.6s;
+
+  --header-h: 90px;
+  --z-cursor: 9999;
+  --z-header: 1000;
+}
+
+/* ---- Breakpoints (reference / Elementor) ----
+   mobile  : max-width 767px
+   tablet  : 768px – 1024px
+   desktop : min-width 1025px
+   wide    : min-width 1600px
+   Used directly in component CSS via @media.
+*/

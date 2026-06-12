@@ -1,0 +1,91 @@
+/* Contact — reference: h3 28px, email Roboto Mono 20px #fff */
+.contact {
+  text-align: center;
+}
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact .section-label {
+  margin-bottom: 12px;
+}
+
+/* h3 #b0b24cd: 28px */
+.contact-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.3;
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+/* email #59aa4c0: Roboto Mono 20px #fff */
+.contact-email {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 4px;
+  transition: color var(--t-base) var(--ease),
+    border-color var(--t-base) var(--ease);
+}
+.contact-email:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* socials */
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 40px;
+}
+.contact-socials a {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+.contact-socials a:hover {
+  color: var(--color-accent);
+}
+
+/* footer: reference .site-footer bg #17161a, color rgba(255,255,255,.8) */
+.site-footer {
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-dim);
+  margin-top: 100px;
+  padding-block: 32px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text);
+}
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 767px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-footer {
+    margin-top: 60px;
+  }
+}

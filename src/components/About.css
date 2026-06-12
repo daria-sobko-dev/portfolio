@@ -1,0 +1,127 @@
+/* About — two columns: photo + content */
+.about-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* no-photo variant: single centered column */
+.about-inner--no-photo {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+.about-inner--no-photo .about-content .section-label,
+.about-inner--no-photo .about-title {
+  text-align: center;
+}
+.about-inner--no-photo .about-details {
+  justify-content: center;
+}
+.about-inner--no-photo .about-details li {
+  align-items: center;
+  text-align: center;
+}
+
+.about-photo {
+  position: relative;
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: var(--border-subtle);
+  object-fit: cover;
+}
+
+.about-content .section-label {
+  display: block;
+  margin-bottom: 8px;
+}
+.about-title {
+  text-align: left;
+  font-size: 56px;
+  margin-bottom: 24px;
+}
+.about-bio {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+  margin-bottom: 16px;
+}
+
+/* quick facts — clean pills */
+.about-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 34px;
+}
+.about-details li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+.about-detail-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+.about-detail-value {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+/* Download CV button */
+.about-cv {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 15px;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 40px;
+  padding: 14px 28px;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease),
+    transform var(--t-base) var(--ease);
+}
+.about-cv::after {
+  content: ' ↓';
+}
+.about-cv:hover {
+  background: transparent;
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .about-photo {
+    max-width: 360px;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  .about-title {
+    font-size: 40px;
+  }
+}

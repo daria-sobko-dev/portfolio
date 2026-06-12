@@ -1,0 +1,141 @@
+/* My Stack — adapted from the reference (Tailwind) to plain CSS / dark theme */
+.stack-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.stack .section-label {
+  display: block;
+  margin-bottom: 8px;
+}
+.stack-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 12px auto 0;
+}
+
+/* two columns of category cards */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* category card (reference: rounded-3xl, border-white/5, bg-white/[0.02]) */
+.stack-card {
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* category title (reference: font-black, uppercase, accent, left border) */
+.stack-category {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  padding-left: 12px;
+  border-left: 2px solid var(--color-accent);
+  margin-bottom: 24px;
+}
+
+/* 4-up icon grid */
+.stack-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* tech item (reference: rounded-2xl, border, hover bg lighter) */
+.stack-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.stack-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
+}
+.stack-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* text-only items (plugins without an icon: ACF, WPML, CF7) */
+.stack-item--text {
+  justify-content: center;
+}
+.stack-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--color-text);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  transition: color var(--t-base) var(--ease);
+}
+.stack-item--text:hover .stack-text {
+  color: var(--color-accent);
+}
+.stack-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* name (reference: tiny bold uppercase, muted → white on hover) */
+.stack-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--color-text-muted);
+  transition: color var(--t-base) var(--ease);
+}
+.stack-item:hover .stack-name {
+  color: var(--color-text);
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  .stack-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+  .stack-subtitle {
+    font-size: 16px;
+  }
+  /* icons wrap to the next line instead of being squeezed into 4 columns */
+  .stack-items {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  }
+  /* let long names wrap inside the tile rather than overflow */
+  .stack-name {
+    overflow-wrap: anywhere;
+  }
+}

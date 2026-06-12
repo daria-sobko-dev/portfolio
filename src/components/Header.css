@@ -1,0 +1,135 @@
+/* Sticky header — reference: .header-3 (height 100px, nav centered) */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  background: transparent;
+  transition: background var(--t-base) var(--ease),
+    height var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+}
+
+/* scrolled state (reference .-sticky: fixed, solid bg) — dark theme variant */
+.site-header.is-sticky {
+  height: 72px;
+  background: rgba(14, 14, 14, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--border-subtle);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ---- Branding ---- */
+.branding-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.branding:hover .branding-title {
+  color: var(--color-accent);
+}
+
+/* ---- Nav: flex-centered in the header (no absolute positioning) ----
+   nav grows to fill the space between branding and the right edge and
+   centers its items; branding stays left, hamburger right. */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.branding {
+  flex-shrink: 0;
+}
+.nav-list {
+  display: flex;
+  gap: 32px;
+}
+.nav-item a {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: 15px; /* reference .menu-item ~.94rem */
+  color: var(--color-text);
+}
+.nav-slash {
+  color: var(--color-accent);
+}
+.nav-item a:hover {
+  color: var(--color-accent);
+}
+
+/* ---- Hamburger (mobile) ---- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: var(--border-subtle);
+  align-items: center;
+  z-index: 2;
+}
+.hamburger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform var(--t-fast) var(--ease),
+    opacity var(--t-fast) var(--ease);
+}
+.hamburger.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Tablet / mobile ---- */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+  }
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    left: auto;
+    top: 0;
+    transform: translateX(100%);
+    width: min(80vw, 360px);
+    height: 100vh;
+    background: var(--color-bg-alt);
+    border-left: var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--t-base) var(--ease);
+  }
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+  .nav-list {
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
+  .nav-item a {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,59 @@
+/* Experience — narrower column for the accordion list */
+.experience-container {
+  max-width: 900px;
+}
+.experience .section-label {
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* sub-heading between the work / education / certificates blocks */
+.experience-subheading {
+  font-family: var(--font-body);
+  font-weight: var(--fw-accent);
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 48px 0 20px;
+}
+
+/* certificates — simple list (name + issuer), optional link */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cert-item {
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: rgba(136, 136, 136, 0.05);
+}
+.cert-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+}
+.cert-name {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+.cert-meta {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 767px) {
+  .cert-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
