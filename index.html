@@ -34,13 +34,23 @@
     />
     <meta name="twitter:image" content="https://dariadev.cv.ua/og-image.png" />
 
-    <!-- Fonts: Poppins (headings) + Roboto Mono (body/accents) -->
+    <!-- Fonts: Poppins (headings) + Roboto Mono (body/accents).
+         Loaded non-render-blocking: preload as style + swap to stylesheet on load,
+         so the page paints immediately with the system fallback, then swaps. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
