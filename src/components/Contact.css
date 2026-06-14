@@ -57,7 +57,6 @@
 
 /* footer: reference .site-footer bg #17161a, color rgba(255,255,255,.8) */
 .site-footer {
-  background-color: var(--color-bg-alt);
   color: var(--color-text-dim);
   margin-top: 100px;
   padding-block: 32px;

@@ -115,18 +115,39 @@
   }
 }
 
-/* scroll-down lottie arrow → #expertise */
+/* scroll-down arrow → #expertise (lightweight CSS-animated SVG) */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-scroll-lottie {
+.hero-scroll-arrow {
   width: 100%;
   height: 100%;
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
+}
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-arrow {
+    animation: none;
+  }
 }
 
 /* ---- Mobile ---- */

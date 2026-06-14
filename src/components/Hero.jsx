@@ -1,6 +1,4 @@
 import { TypeAnimation } from 'react-type-animation'
-import Lottie from 'lottie-react'
-import scrollArrow from '../assets/scroll-arrow.json'
 import heroCover from '../assets/hero-cover.jpg'
 import './Hero.css'
 
@@ -9,9 +7,9 @@ import './Hero.css'
  *  - section #4307f1c: height 90vh (85vh ≤1024), align-items center
  *  - H1 #a5ab7d5: 10vw uppercase, letter-spacing 2.2px, text-shadow (13vw ≤1024 / 46px ≤767)
  *  - subtitle #81270ae: 22px uppercase, letter-spacing 2.2px, margin-top 23px (20px ≤767)
- *  - lottie scroll arrow → #expertise (loop), placed at the bottom of the hero
+ *  - scroll arrow → #expertise (lightweight CSS-animated SVG), at the bottom
  *
- * Reference H1 is static; per request the subtitle is typed (react-type-animation).
+ * Reference H1 is static; per request the role is typed (react-type-animation).
  */
 export default function Hero() {
   return (
@@ -54,7 +52,10 @@ export default function Hero() {
       </div>
 
       <a href="#expertise" className="hero-scroll" aria-label="Scroll to expertise">
-        <Lottie animationData={scrollArrow} loop autoplay className="hero-scroll-lottie" />
+        <svg className="hero-scroll-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
       </a>
     </section>
   )
