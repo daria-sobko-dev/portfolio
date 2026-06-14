@@ -44,7 +44,13 @@ export default function Work() {
 
           <div className="work-featured" data-aos="fade-up">
             <div className="work-featured-media">
-              <img src={featuredProject.media} alt={featuredProject.name} loading="lazy" />
+              <img
+                src={featuredProject.media}
+                alt={featuredProject.name}
+                width={featuredProject.mediaW}
+                height={featuredProject.mediaH}
+                loading="lazy"
+              />
             </div>
             <div className="work-featured-caption">
               <img className="work-featured-arrow" src={rightArrow} alt="" aria-hidden="true" />

@@ -15,6 +15,8 @@ export const featuredProject = {
   name: 'Aetherfield',
   url: 'https://aetherfield.dariadev.cv.ua',
   media: aetherfieldImg,
+  mediaW: 1500,
+  mediaH: 1014,
   tags: ['WordPress', 'CPT', 'Gutenberg', 'ACF', 'HTML', 'SCSS', 'JS'],
 }
 
@@ -39,6 +41,8 @@ export const projects = [
     size: 'wide',
     url: 'https://biz-tklaser.netlify.app/',
     image: bizTklaserImg,
+    width: 1500,
+    height: 1020,
     description:
       'Business proposal landing page hand-coded in HTML, SCSS and JavaScript — pixel-perfect and fully responsive.',
     tags: ['HTML', 'SCSS', 'JS', 'Responsive'],
@@ -50,6 +54,8 @@ export const projects = [
     tag: 'HTML/CSS/JS',
     url: 'https://omni-daria.netlify.app/',
     image: omniImg,
+    width: 1500,
+    height: 947,
     description:
       'Food-subscription landing page hand-coded in HTML, CSS and JavaScript — responsive, accessible and fast.',
     tags: ['HTML', 'CSS', 'JS', 'Responsive'],
@@ -61,6 +67,8 @@ export const projects = [
     tag: 'HTML/CSS/JS',
     url: 'https://carfromusa.netlify.app/',
     image: carFromUsaImg,
+    width: 1500,
+    height: 934,
     description:
       'Car-import service landing page hand-coded in HTML, CSS and JavaScript — responsive and conversion-focused.',
     tags: ['HTML', 'CSS', 'JS', 'Responsive'],
@@ -73,6 +81,8 @@ export const projects = [
     size: 'wide',
     url: 'https://tklaserbf.netlify.app/',
     image: tklaserbfImg,
+    width: 1500,
+    height: 935,
     description:
       'Black-Friday promo landing for a laser-epilation studio, hand-coded in HTML, CSS and JavaScript — responsive and fast.',
     tags: ['HTML', 'CSS', 'JS', 'Responsive'],

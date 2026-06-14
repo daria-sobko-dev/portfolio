@@ -76,6 +76,8 @@ export default function Expertise() {
             src={helloWorldCode}
             alt=""
             aria-hidden="true"
+            width="768"
+            height="384"
             loading="lazy"
           />
         </div>

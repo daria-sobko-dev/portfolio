@@ -11,7 +11,7 @@ export default function About() {
       <div className={`container about-inner${about.showPhoto ? '' : ' about-inner--no-photo'}`}>
         {about.showPhoto && (
           <div className="about-photo" data-aos="fade-up">
-            <img src={about.photo} alt="Daria Sobko" loading="lazy" />
+            <img src={about.photo} alt="Daria Sobko" width="640" height="760" loading="lazy" />
           </div>
         )}
 

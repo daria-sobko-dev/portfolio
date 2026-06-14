@@ -10,13 +10,13 @@ import './ProjectCard.css'
  * Mount animation is CSS (not AOS) so re-filtered cards never get stuck invisible.
  */
 export default function ProjectCard({ project }) {
-  const { title, image, tag, url, size, description, tags } = project
+  const { title, image, tag, url, size, description, tags, width, height } = project
   const sizeClass = size ? ` project-card--${size}` : ''
   return (
     <article className={`project-card${sizeClass}`} data-cursor-hover>
       <a className="project-card-link" href={url} target="_blank" rel="noreferrer" aria-label={title}>
         <div className="project-card-image">
-          <img src={image} alt={title} loading="lazy" />
+          <img src={image} alt={title} width={width} height={height} loading="lazy" />
           <div className="project-card-overlay">
             <div className="project-card-overlay-body">
               {description && <p className="project-card-desc">{description}</p>}
